@@ -4,7 +4,7 @@ from django.db import models
 class Order(models.Model):
     customer_name = models.CharField(max_length=32)
     order_date= models.DateTimeField()
-    total_amount=models.DecimalField(decimal_places=4, max_digits=4)
+    total_amount=models.IntegerField()
     delivery_address=models.CharField(max_length=32)
     contact_number=models.CharField(max_length=32)
     payment_status=models.BooleanField()
