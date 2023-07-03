@@ -9,3 +9,6 @@ class Customer(models.Model):
     order_history= models.JSONField()
     payment_method=models.CharField(max_length=32)
     rating=models.FloatField()
+
+class Meta:
+        verbose_name_plural = "customer"

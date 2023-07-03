@@ -8,3 +8,6 @@ class Reviews_and_Ratings(models.Model):
     cumulative_ratings=models.IntegerField()
     author=models.CharField(max_length=32)
     created_date = models.DateTimeField()
+
+class Meta:
+        verbose_name_plural = "reviews_and_ratings"

@@ -6,3 +6,6 @@ class Payment(models.Model):
     currency=models.DecimalField(decimal_places=4, max_digits=4)
     date_of_payment=models.DateTimeField()
     status=models.CharField(max_length=32)
+
+class Meta:
+        verbose_name_plural = "payment"

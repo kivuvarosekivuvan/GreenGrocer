@@ -11,3 +11,6 @@ class Order(models.Model):
     # items=models.JSONField()
     order_status=models.BooleanField()
     payment_method=models.CharField(max_length=32)
+
+class Meta:
+        verbose_name_plural = "order"

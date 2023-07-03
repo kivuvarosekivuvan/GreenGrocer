@@ -8,3 +8,6 @@ class Delivery(models.Model):
     delivery_driver_name=models.CharField(max_length=32)
     delivery_address=models.CharField(max_length=32)
     delivery_status=models.CharField(max_length=32)
+
+class Meta:
+        verbose_name_plural = "delivery"

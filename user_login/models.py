@@ -9,3 +9,6 @@ class User_Login(models.Model):
     last_name = models.CharField(max_length=32)
     phone_number =models.CharField(max_length=32)
     date_of_birth = models.DateTimeField()
+
+class Meta:
+        verbose_name_plural = "user_login"

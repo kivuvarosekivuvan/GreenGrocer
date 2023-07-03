@@ -7,3 +7,6 @@ class Product_Cart(models.Model):
     product_quantity = models.IntegerField()
     product_image =models.ImageField()
     date_added = models.DateTimeField()
+
+class Meta:
+        verbose_name_plural = "product_cart"
