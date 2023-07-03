@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'reviews_and_rating',
     'user_login',
     'refund',
+    'store',
 ]
 
 MIDDLEWARE = [
