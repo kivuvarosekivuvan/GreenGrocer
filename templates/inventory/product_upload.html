@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Kiosk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(224, 236, 245);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .upload_form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0.2, 0.2, 0.2, 0.8);
+        }
+
+        .upload_form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .upload_form input[type="text"],
+        .upload_form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .upload_form button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .upload_form button[type="submit"]:hover {
+            background-color: #0069da;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" class="upload_form">
+            {% csrf_token %}     
+            {{ form.as_p }}
+            <button type="submit">SAVE</button>
+        </form>
+    </div>
+</body>
+</html>

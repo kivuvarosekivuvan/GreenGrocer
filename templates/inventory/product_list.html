@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(224, 236, 245);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            width: 400px;
+            height: 50vh;
+            justify-content: center;    
+            border-radius: 20px;
+            border: 2px solid #a7a8a8;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .product-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-buttons a {
+            background-color:#007bff;
+            color: white;
+            padding: 10px 20px;
+           margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        h1{
+            margin-left: 750px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Products</h1>
+
+    <div class="product-container">
+        {% for product in products %}
+
+        <div class="product">
+            <h2>{{ product.name }}</h2>
+            <img src="{{ product.imageUrl }}" alt="{{ product.name }}" style="max-width: 200px;">
+            <p>Stock: {{ product.stock }}</p>
+            <p>Price: {{ product.price }}</p>
+            <div class="product-buttons">
+                <a href="{% url 'product_detail_view' id=product.id %}">View product</a>
+                <a href="{% url 'product_update_view' id=product.id%}">Edit Product</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
