@@ -19,6 +19,7 @@ def product_upload_view(request):
 def product_list(request):         
     products = Product.objects.all()
     return render(request, "inventory/product_list.html", {"products": products})
+
     # you can add processing bar or any further logic if needed
 
 

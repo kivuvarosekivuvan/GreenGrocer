@@ -45,9 +45,14 @@
         h1{
             margin-left: 750px;
         }
+        .images{
+            width: 70%;
+            margin-left: 50px;
+        }
     </style>
 </head>
 <body>
+    
     <h1>Available Products</h1>
 
     <div class="product-container">
@@ -55,7 +60,7 @@
 
         <div class="product">
             <h2>{{ product.name }}</h2>
-            <img src="{{ product.imageUrl }}" alt="{{ product.name }}" style="max-width: 200px;">
+            <img src="{{product.image.url}}" alt="{{product.name}}" class="images"/>
             <p>Stock: {{ product.stock }}</p>
             <p>Price: {{ product.price }}</p>
             <div class="product-buttons">

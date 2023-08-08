@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Details</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .customer-details-container {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .customer-details {
+            margin-top: 20px;
+        }
+        .images {
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            margin: 0 auto; /* Center the image */
+            display: block;
+        }
+        h2 {
+            margin-top: 10px;
+            font-size: 40px;
+            color: #007bff;
+            font-weight: 700;
+        }
+        p {
+            margin: 10px 20;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+        .back-button a {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Customer Details</h1>
+
+<div class="customer-details-container">
+    <div class="customer-details">
+        <h2>{{ customer.name }}</h2>
+        <img src="{{ customer.image.url }}" alt="{{ customer.name }}" class="images"/>
+        <p>Email: {{ customer.email_address }}</p>
+        <p>Address: {{ customer.home_address }}</p>
+        <p>Payment Method: {{ customer.payment_method }}</p>
+        <p>Order History: {{ customer.order_history }}</p>
+        <p>Rating: {{ customer.rating }}</p>
+        
+        <div class="back-button">
+            <a href="{% url 'customer_list_view' %}">Back to Customer List</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

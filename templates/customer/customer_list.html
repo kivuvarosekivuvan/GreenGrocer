@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer List</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .customer {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .customer:hover {
+            background-color: #e0e0e0;
+        }
+        .customer-details {
+            display: none;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #ffffff;
+        }
+        .images {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .customer-info {
+            flex: 1; 
+        }
+        .customer-buttons {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .customer-buttons a {
+            margin-right: 10px;
+            border-radius: 5px;
+            padding: 10px;
+            color: white;
+            font-weight: 700;
+            background-color: #007bff;
+            text-decoration: none;
+        }
+        .search-container {
+            margin-top: 50px;
+            margin-left: 500px;
+        }
+        .search-input {
+            padding: 15px;
+            width: 50%;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+        h1{
+            margin-left: 750px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress" style="display: none;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+</div>
+
+<h1>Customer List</h1>
+
+<div class="search-container">
+    <input type="text" class="search-input" id="searchInput" placeholder="Search for customers...">
+</div>
+
+<div class="customer-container">
+    {% for customer in customers %}
+        <div class="customer">
+            <img src="{{ customer.image.url }}" alt="{{ customer.name }}" class="images"/>
+            <div class="customer-info">
+                <h2>{{ customer.name }}</h2>
+                <p>Email: {{ customer.email_address }}</p>
+                <p>Address: {{ customer.home_address }}</p>
+                <p>Phone Number: {{ customer.phone_number }}</p>
+                <div class="customer-buttons">
+                    <a href="{% url 'customer_detail_view' id=customer.id %}" class="btn btn-primary">View Customer</a>
+                    <a href="{% url 'customer_update_view' id=customer.id%}" class="btn btn-secondary">Edit Customer</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".customer").click(function () {
+            $(this).find(".customer-details").slideToggle();
+        });
+
+        $("#searchInput").on("keyup", function () {
+            var searchText = $(this).val().toLowerCase();
+            $(".customer").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>
+</body>
+</html>
