@@ -23,7 +23,18 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inventory/', include("inventory.urls")),
-    path('customer/', include("customer.urls"))
+    path('customer/', include("customer.urls")),
+    path('delivery/', include("delivery.urls")),
+    path('cart/', include("product_cart.urls")),
+    path('orders/', include("orders.urls")),
+    path('payment/', include("payment.urls")),
+    path('refund/', include("refund.urls")),
+    path('review/', include("reviews_and_rating.urls")),
+
+
+
+
+
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

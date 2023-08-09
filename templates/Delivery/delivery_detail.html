@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delivery Detail</title>
+</head>
+<body>
+    <h1>Delivery Detail</h1>
+    <p><strong>Order Name:</strong> {{ delivery.order_name }}</p>
+    <p><strong>Contact Number:</strong> {{ delivery.contact_number }}</p>
+    <p><strong>Delivery Date:</strong> {{ delivery.delivery_date }}</p>
+    <p><strong>Delivery Time:</strong> {{ delivery.delivery_time }}</p>
+    <p><strong>Driver Name:</strong> {{ delivery.delivery_driver_name }}</p>
+    <p><strong>Delivery Address:</strong> {{ delivery.delivery_address }}</p>
+    <p><strong>Delivery Status:</strong> {{ delivery.delivery_status }}</p>
+    <a href="{% url 'edit_delivery' delivery.id %}">Edit</a>
+    <a href="{% url 'delete_delivery' delivery.id %}">Delete</a>
+</body>
+</html>

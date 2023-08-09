@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment List</title>
+</head>
+<body>
+    <h1>Payment List</h1>
+    <ul>
+        {% for payment in payments %}
+            <li><a href="{% url 'payment_detail' payment.id %}">{{ payment.payment_method }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_payment' %}">Create New Payment</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Delivery</title>
+</head>
+<body>
+    <h1>Delete Delivery</h1>
+    <p>Are you sure you want to delete "{{ delivery.order_name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'delivery_list' %}">Cancel</a>
+</body>
+</html>

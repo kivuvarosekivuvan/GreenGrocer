@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Reviews_and_Ratings
 
-# Register your models here.
 class Reviews_and_RatingsAdmin(admin.ModelAdmin):
     list_display = ("title", "review_Content", "rating", "cumulative_ratings", "author", 'created_date')
 

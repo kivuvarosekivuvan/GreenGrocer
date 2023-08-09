@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Detail</title>
+</head>
+<body>
+    <h1>Refund Detail</h1>
+    <p>Item Ordered: {{ refund.item_ordered }}</p>
+    <p>Requested Time: {{ refund.requested_time }}</p>
+    <p>Reason: {{ refund.reason }}</p>
+    <p>Approval: {{ refund.approval }}</p>
+    <a href="{% url 'edit_refund' id=refund.id %}">Edit Refund</a>
+    <a href="{% url 'delete_refund' id=refund.id %}">Delete Refund</a>
+</body>
+</html>

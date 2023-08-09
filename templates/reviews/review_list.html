@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review List</title>
+</head>
+<body>
+ 
+    <h1>Review List</h1>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            <h2>{{ review.title }}</h2>
+            <p>Rating: {{ review.rating }}</p>
+            <p>{{ review.content }}</p>
+            <p>Author: {{ review.author }}</p>
+            <a href="{% url 'review_detail' review_id=review.id %}">View Details</a>
+        </li>
+    </ul>
+    {% endfor %}
+</body>
+</html>

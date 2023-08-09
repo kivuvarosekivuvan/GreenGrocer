@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Detail</title>
+</head>
+<body>
+    <h1>Order Detail</h1>
+    <p>Customer Name: {{ order.customer_name }}</p>
+    <p>Order Date: {{ order.order_date }}</p>
+    <!-- Display other order details here -->
+    <a href="{% url 'edit_order' id=order.id %}">Edit Order</a>
+    <a href="{% url 'delete_order' id=order.id %}">Delete Order</a>
+</body>
+</html>
