@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Vendor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .confirmation-box {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 30px;
+            font-size: 18px;
+
+        }
+
+        .btn-cancel {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 30px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Vendor</h1>
+        <div class="confirmation-box">
+            <p>Are you sure you want to delete "{{ vendor.name }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-delete">Delete</button>
+            </form>
+            <a href="{% url 'vendor_list_view' %}" class="btn-cancel">Cancel</a>
+        </div>
+    </div>
+</body>
+</html>

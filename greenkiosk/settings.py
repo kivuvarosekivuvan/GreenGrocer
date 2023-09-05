@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'user_login',
     'refund',
     'store',
-    'Vendor'
+    'Vendor',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: rgb(224, 236, 245);
             margin: 0;
             padding: 0;
         }
@@ -49,15 +49,24 @@
             text-decoration: none;
             border-radius: 3px;
         }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
+    <h1>Shopping Cart</h1>
     <div class="cart-container">
-        <h1>Shopping Cart</h1>
 
+    
         {% for cart_item in cart_items %}
             <div class="cart-item">
-                <img src="{{ cart_item.product_image.url }}" alt="{{ cart_item.product_name }}" class="images" />
+
+                <img src="{{product.image.url}}" alt="{{product.name}}" class="images"/>
                 <div class="cart-item-details">
                     <h2>{{ cart_item.product_name }}</h2>
                     <p>Price: {{ cart_item.product_price }}</p>
@@ -72,3 +81,4 @@
     </div>
 </body>
 </html>
+

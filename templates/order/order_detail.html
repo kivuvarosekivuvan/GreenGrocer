@@ -4,13 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(224, 236, 245);
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .order-details {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 400px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .order-details p {
+            margin: 10px 0;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .action-buttons a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .edit-button {
+            background-color: #007bff;
+        }
+        .delete-button {
+            background-color: #dc3545;
+        }
+       
+        
+    </style>
 </head>
 <body>
     <h1>Order Detail</h1>
-    <p>Customer Name: {{ order.customer_name }}</p>
-    <p>Order Date: {{ order.order_date }}</p>
-    <!-- Display other order details here -->
-    <a href="{% url 'edit_order' id=order.id %}">Edit Order</a>
-    <a href="{% url 'delete_order' id=order.id %}">Delete Order</a>
+    <div class="order-details">
+        <p>Customer Name: {{ order.customer_name }}</p>
+        <p>Order Date: {{ order.order_date }}</p>
+        <div class="action-buttons">
+            <a href="{% url 'edit_order' id=order.id %}" class="edit-button">Edit Order</a>
+            <a href="{% url 'delete_order' id=order.id %}" class="delete-button">Delete Order</a>
+        </div>
+    </div>
 </body>
 </html>

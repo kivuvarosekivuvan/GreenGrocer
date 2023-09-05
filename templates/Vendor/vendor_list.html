@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(224, 236, 245);
+
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .vendor-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .vendor-list li {
+            margin-bottom: 10px;
+            /* background-color: #eeebeb; */
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background-color: #007bff;;
+        }
+
+        .search-container {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 80%;
+            border: 2px solid #007bff;;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Vendor List</h1>
+
+    <div class="container">
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search for vendors...">
+            <button class="search-button" id="searchButton">Search</button>
+        </div>
+        <ul class="vendor-list">
+            {% for vendor in vendors %}
+                <li><a href="{% url 'vendor_detail_view' vendor.id %}">{{ vendor.name }}</a> <a href="{% url 'vendor_edit_view' vendor.id %}" class="btn">Edit</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'vendor_upload_view' %}" class="btn">Upload New Vendor</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#searchButton").click(function () {
+                var searchText = $("#searchInput").val().toLowerCase();
+                $(".vendor-list li").each(function () {
+                    var vendorText = $(this).text().toLowerCase();
+                    $(this).toggle(vendorText.indexOf(searchText) > -1);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

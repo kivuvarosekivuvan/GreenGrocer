@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ vendor.name }} Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ vendor.name }} Detail</h1>
+        <p><strong>Name:</strong> {{ vendor.name }}</p>
+        <p><strong>Email Address:</strong> {{ vendor.email_address }}</p>
+        <p><strong>Phone Number:</strong> {{ vendor.phone_number }}</p>
+        <p><strong>Home Address:</strong> {{ vendor.home_address }}</p>
+        <a href="{% url 'vendor_delete_view' vendor.id %}" class="btn">Delete</a>
+        <a href="{% url 'vendor_list_view' %}" class="btn">Back to List</a>
+    </div>
+</body>
+</html>

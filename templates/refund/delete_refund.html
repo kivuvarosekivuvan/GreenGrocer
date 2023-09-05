@@ -4,13 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Refund</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(224, 236, 245);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #dc3545;
+            color: #fff;
+            margin: 0;
+        }
+
+        .delete-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
     <h1>Delete Refund</h1>
-    <p>Are you sure you want to delete the refund for "{{ refund.item_ordered }}"?</p>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
+    <div class="delete-container">
+        <p>Are you sure you want to delete the refund for "{{ refund.item_ordered }}"?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -37,7 +37,7 @@
             background-color:#007bff;
             color: white;
             padding: 10px 20px;
-           margin-left: 20px;
+            margin-left: 20px;
             margin-right: 20px;
             border-radius: 5px;
             text-decoration: none;
@@ -49,15 +49,41 @@
             width: 70%;
             margin-left: 50px;
         }
+
+        .search-container {
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+
+        .search-input {
+            padding: 15px 10px;
+            width: 50%;
+            border: 2px solid #007bff;
+            margin-top: 100px;
+            border-radius: 5px;
+            margin-left: 300px;        }
+
+        .search-button {
+            padding: 15px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     
     <h1>Available Products</h1>
 
+    <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search for products...">
+        <button class="search-button" id="searchButton">Search</button>
+    </div>
+
     <div class="product-container">
         {% for product in products %}
-
         <div class="product">
             <h2>{{ product.name }}</h2>
             <img src="{{product.image.url}}" alt="{{product.name}}" class="images"/>
@@ -71,5 +97,17 @@
         {% endfor %}
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#searchButton").click(function () {
+                var searchText = $("#searchInput").val().toLowerCase();
+                $(".product").each(function () {
+                    var productText = $(this).text().toLowerCase();
+                    $(this).toggle(productText.indexOf(searchText) > -1);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

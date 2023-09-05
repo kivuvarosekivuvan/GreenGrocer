@@ -30,6 +30,8 @@ urlpatterns = [
     path('payment/', include("payment.urls")),
     path('refund/', include("refund.urls")),
     path('review/', include("reviews_and_rating.urls")),
+    path('vendor/', include("Vendor.urls")),
+    path('api/', include("api.urls"))
 
 
 

@@ -9,7 +9,7 @@ class Product_Cart(models.Model):
     product_name = models.CharField(max_length=32)
     product_price = models.IntegerField()
     product_quantity = models.IntegerField()
-    product_image =models.ImageField(upload_to="images")
+    product_image = models.ImageField(upload_to='images/')
     date_added = models.DateTimeField()
 
 class Meta:

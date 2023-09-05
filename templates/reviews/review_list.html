@@ -4,20 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(224, 236, 245);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        li:hover {
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
- 
+
     <h1>Review List</h1>
-    <ul>
-        {% for review in reviews %}
-        <li>
-            <h2>{{ review.title }}</h2>
-            <p>Rating: {{ review.rating }}</p>
-            <p>{{ review.content }}</p>
-            <p>Author: {{ review.author }}</p>
-            <a href="{% url 'review_detail' review_id=review.id %}">View Details</a>
-        </li>
-    </ul>
-    {% endfor %}
+
+    <div class="container">
+        <ul>
+            {% for review in reviews %}
+            <li>
+                <h2>{{ review.title }}</h2>
+                <p>Rating: {{ review.rating }}</p>
+                <p>{{ review.content }}</p>
+                <p>Author: {{ review.author }}</p>
+                <a href="{% url 'review_detail' review_id=review.id %}">View Details</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

@@ -62,6 +62,7 @@
     <p>Stock: {{ product.stock }}</p>
     <span>Price: ${{ product.price }}</span>
 
-    <button>Add to cart</button>
-</body>
+    <a href="{% url 'cart:add_to_cart' product.id %}">
+        <button>Add to Cart</button>
+    </a></body>
 </html>

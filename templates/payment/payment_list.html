@@ -4,14 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .create-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-button a {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .create-button a:hover {
+            background-color: #007bff;
+        }
+    </style>
 </head>
 <body>
     <h1>Payment List</h1>
-    <ul>
-        {% for payment in payments %}
-            <li><a href="{% url 'payment_detail' payment.id %}">{{ payment.payment_method }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'create_payment' %}">Create New Payment</a>
+    <div class="container">
+        <ul>
+            {% for payment in payments %}
+                <li><a href="{% url 'payment_detail' payment.id %}">{{ payment.payment_method }}</a></li>
+            {% endfor %}
+        </ul>
+        <div class="create-button">
+            <a href="{% url 'create_payment' %}">Create New Payment</a>
+        </div>
+    </div>
 </body>
 </html>

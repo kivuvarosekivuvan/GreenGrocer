@@ -1,18 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+        }
+
+        .detail-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #007bff;
+        }
+    </style>
 </head>
 <body>
     <h1>Delivery Detail</h1>
-    <p><strong>Order Name:</strong> {{ delivery.order_name }}</p>
-    <p><strong>Contact Number:</strong> {{ delivery.contact_number }}</p>
-    <p><strong>Delivery Date:</strong> {{ delivery.delivery_date }}</p>
-    <p><strong>Delivery Time:</strong> {{ delivery.delivery_time }}</p>
-    <p><strong>Driver Name:</strong> {{ delivery.delivery_driver_name }}</p>
-    <p><strong>Delivery Address:</strong> {{ delivery.delivery_address }}</p>
-    <p><strong>Delivery Status:</strong> {{ delivery.delivery_status }}</p>
-    <a href="{% url 'edit_delivery' delivery.id %}">Edit</a>
-    <a href="{% url 'delete_delivery' delivery.id %}">Delete</a>
+    <div class="detail-container">
+        <p><strong>Order Name:</strong> {{ delivery.order_name }}</p>
+        <p><strong>Contact Number:</strong> {{ delivery.contact_number }}</p>
+        <p><strong>Delivery Date:</strong> {{ delivery.delivery_date }}</p>
+        <p><strong>Delivery Time:</strong> {{ delivery.delivery_time }}</p>
+        <p><strong>Driver Name:</strong> {{ delivery.delivery_driver_name }}</p>
+        <p><strong>Delivery Address:</strong> {{ delivery.delivery_address }}</p>
+        <p><strong>Delivery Status:</strong> {{ delivery.delivery_status }}</p>
+        <a href="{% url 'edit_delivery' delivery.id %}">Edit</a>
+        <a href="{% url 'delete_delivery' delivery.id %}">Delete</a>
+    </div>
 </body>
 </html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            margin: 0;
+        }
+
+        .customer-card {
+            padding: 20px;
+        }
+
+        .customer-card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .customer-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .customer-details p {
+            margin-bottom: 5px;
+        }
+
+        .order-history {
+            margin-top: 20px;
+        }
+
+        .order-history ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .order-history li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Detail</h1>
+    <div class="container">
+        <div class="customer-card">
+            <img src="{{ customer.image.url }}" alt="Customer Image">
+            <h2 class="customer-name">{{ customer.name }}</h2>
+            <div class="customer-details">
+                <p><strong>Email:</strong> {{ customer.email_address }}</p>
+                <p><strong>Phone Number:</strong> {{ customer.phone_number }}</p>
+                <p><strong>Home Address:</strong> {{ customer.home_address }}</p>
+                <p><strong>Payment Method:</strong> {{ customer.payment_method }}</p>
+                <p><strong>Rating:</strong> {{ customer.rating }}</p>
+            </div>
+            <div class="order-history">
+                <h3>Order History:</h3>
+                <ul>
+                    {% for order in customer.order_history %}
+                        <li>{{ order }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

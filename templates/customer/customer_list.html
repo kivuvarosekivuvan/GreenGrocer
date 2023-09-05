@@ -7,6 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: rgb(224, 236, 245);
+
         }
         .customer {
             display: flex;
@@ -56,12 +58,25 @@
         .search-container {
             margin-top: 50px;
             margin-left: 500px;
+            display: flex; /* Added */
+            align-items: center;
         }
         .search-input {
             padding: 15px;
             width: 50%;
             border: 2px solid #007bff;
             border-radius: 5px;
+            margin-right: 10px;
+            margin-top: 50px;
+        }
+        .search-button {
+            padding: 15px 20px; 
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 50px;
         }
         h1{
             margin-left: 750px;
@@ -78,6 +93,7 @@
 
 <div class="search-container">
     <input type="text" class="search-input" id="searchInput" placeholder="Search for customers...">
+    <button class="search-button" id="searchButton">Search</button> <!-- Added -->
 </div>
 
 <div class="customer-container">
@@ -98,18 +114,17 @@
     {% endfor %}
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".customer").click(function () {
             $(this).find(".customer-details").slideToggle();
         });
 
-        $("#searchInput").on("keyup", function () {
-            var searchText = $(this).val().toLowerCase();
-            $(".customer").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+        $("#searchButton").click(function () { 
+            var searchText = $("#searchInput").val().toLowerCase();
+            $(".customer").each(function () {
+                var customerText = $(this).text().toLowerCase();
+                $(this).toggle(customerText.indexOf(searchText) > -1);
             });
         });
     });

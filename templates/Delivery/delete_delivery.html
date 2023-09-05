@@ -1,15 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #dc3545;
+            color: #fff;
+            margin: 0;
+        }
+
+        .delete-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #c82333;
+        }
+
+        a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #343a40;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #23272b;
+        }
+    </style>
 </head>
 <body>
     <h1>Delete Delivery</h1>
-    <p>Are you sure you want to delete "{{ delivery.order_name }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-    <a href="{% url 'delivery_list' %}">Cancel</a>
+    <div class="delete-container">
+        <p>Are you sure you want to delete "{{ delivery.order_name }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+        <a href="{% url 'delivery_list' %}">Cancel</a>
+    </div>
 </body>
 </html>

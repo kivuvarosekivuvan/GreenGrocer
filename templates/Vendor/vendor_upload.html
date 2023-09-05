@@ -3,48 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Kiosk - New Customer</title>
+    <title>Upload Vendor</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: rgb(224, 236, 245);
             margin: 0;
             padding: 0;
-            color: #333;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
-            margin-top: 50px;
+        }
+
+        .upload_form {
             background-color: #fff;
+            padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0.2, 0.2, 0.2, 0.8);
         }
 
-        h1 {
-            text-align: center;
-            padding: 20px;
-            background-color: #007bff;
-            color: #fff;
-            margin: 0;
-        }
-
-        .customer-form {
-            padding: 20px;
-        }
-
-        .customer-form label {
+        .upload_form label {
             display: block;
             font-weight: bold;
             margin-bottom: 10px;
         }
 
-        .customer-form input[type="text"],
-        .customer-form input[type="email"],
-        .customer-form input[type="tel"],
-        .customer-form textarea {
+        .upload_form input[type="text"],
+        .upload_form textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -52,7 +40,7 @@
             border-radius: 3px;
         }
 
-        .customer-form button[type="submit"] {
+        .upload_form button[type="submit"] {
             background-color: #007bff;
             color: #fff;
             padding: 10px 15px;
@@ -61,15 +49,14 @@
             cursor: pointer;
         }
 
-        .customer-form button[type="submit"]:hover {
+        .upload_form button[type="submit"]:hover {
             background-color: #0069da;
         }
     </style>
 </head>
 <body>
-    <h1>New Customer</h1>
     <div class="container">
-        <form method="POST" class="customer-form">
+        <form method="POST" class="upload_form">
             {% csrf_token %}     
             {{ form.as_p }}
             <button type="submit">SAVE</button>
